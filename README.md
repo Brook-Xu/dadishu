@@ -1,2 +1,2 @@
 # dadishu
-interview task of skyworth
+interview task of skyworth club
