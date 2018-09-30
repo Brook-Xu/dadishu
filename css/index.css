@@ -1,0 +1,31 @@
+body{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.cover{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+.center{
+	position: relative;
+	width: 70%;
+	height: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.background{
+	background-image: url('img/1.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: 100% 100%;
+}
+.gamePart{
+	background-image: url('img/div.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
