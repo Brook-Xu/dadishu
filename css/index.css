@@ -3,6 +3,26 @@ body{
 	width: 100%;
 	height: 100%;
 }
+input{
+	width: 90%;
+}
+label{
+	margin-top: 7px;
+	margin-bottom: 8px;
+	font-size: 16px;
+}
+button{
+	padding: 6px 4px 6px 4px;
+	width: 75%;
+	color: #000;
+	background-color: #add8e6;
+	font-size: 16px;
+	text-align: center;
+	font-style: normal;
+    border-radius: 8px;
+    border: 1px solid #00ffff;
+    margin-bottom: 6px;
+}
 .cover{
 	position: relative;
 	width: 100%;
@@ -12,7 +32,6 @@ body{
 .center{
 	position: relative;
 	width: 70%;
-	height: 80%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -25,6 +44,114 @@ body{
 }
 .gamePart{
 	background-image: url('img/div.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
+.leftPart{
+	position: relative;
+	display: inline-block;
+	margin-left: 5%;
+	text-align: left;
+	width: 17%;
+	padding-bottom: 10%;
+}
+.rightPart{
+	position: relative;
+	display: inline-block;
+	width: 75%;
+	text-align: center;
+}
+.split{
+	line-height: 1.5;
+}
+.setting{
+	position: relative;
+	margin: 10px;
+	font-size: 20px;
+}
+.board{
+	background-color: lightblue;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	padding-top: 5px;
+	padding-bottom: 2px;
+}
+.block{
+	position: relative;
+	margin: 2px;
+	display: inline-block;
+	width: 18%;
+	padding-bottom: 18%;
+	background-color: white;
+
+}
+.modalBackground{
+	background-color: rgba(255,255,255,0.6);
+}
+.mouse1{
+	background-image: url('img/mouse1.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
+.mouse2{
+	background-image: url('img/mouse2.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
+.mouse3{
+	background-image: url('img/mouse3.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
+.mouse4{
+	background-image: url('img/mouse4.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
+.mouse5{
+	background-image: url('img/mouse5.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
+.mouse6{
+	background-image: url('img/mouse6.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
+.mouse7{
+	background-image: url('img/mouse7.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
+.mouse8{
+	background-image: url('img/mouse8.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
+.mouse9{
+	background-image: url('img/mouse9.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
+.mouse10{
+	background-image: url('img/mouse10.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
+.mousebeat{
+	background-image: url('img/m1.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 100% 100%;
