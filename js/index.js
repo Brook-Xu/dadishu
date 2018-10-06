@@ -1,51 +1,70 @@
 window.onload = function(){
-	window.level = document.getElementById('level').value;
+	window.level = parseInt(document.getElementById('level').value);
 	window.time = document.getElementById('time').value;
 	var grade = 0;
 	var rate = '0%';
 	var completed = 0;
 	var startButton = document.getElementById('startButton');
 	var sureButton = document.getElementById('sureButton');
+	var gradeInput = document.getElementById('grade');
+	var rateInput = document.getElementById('rate');
+	var timeupInput = document.getElementById('timeup');
 	var blocks = document.getElementsByClassName('block');
 	var status = new Array(blocks.length);
 
 	startButton.addEventListener('click', gameStart);
-	sureButton.addEventListener('click', convey);
-	$('#settingList').on('hidden.bs.modal',convey);
+	sureButton.addEventListener('click', set);
+	$('#settingList').on('hidden.bs.modal',set);
 
 //游戏开始函数
 	function gameStart(){
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].addEventListener('click',beatMouse);
 		}
+		grade = 0;
+		rate = '0%';
+		gradeInput.value = grade;
+		rateInput.value = rate;
+		clearAll();
+		startButton.removeEventListener('click', gameStart);
 		countdown();
-	}
-
-//id数组
-	for (var i = 0; i < blocks.length; i++) {
-		status[i] = i;
 	}
 
 //计时函数（包含游戏过程、结束函数）
 	function countdown(){
-		document.getElementById('timeup').value = window.time;
+		timeupInput.value = window.time;
 		var count = setInterval(function(){
-			var timeup = document.getElementById('timeup').value;
+			var timeup = timeupInput.value;
 			timeup--;
-			document.getElementById('timeup').value = timeup;
+			timeupInput.value = timeup;
+			gradeInput.value = countScore();
+			rate = countRate();
+			rateInput.value = rate;
+			clearAll();
+			var points = pointer();
+			createMouse(points);
 			if (timeup == 0) {
 				clearInterval(count);
 				for (var i = 0; i < blocks.length; i++) {
 					blocks[i].removeEventListener('click',beatMouse);
 				}
 				alert("Time up. ");
+				startButton.addEventListener('click', gameStart);
+				clearAll();
 			}
 		},1000);
 	}
 
+//清屏函数
+	function clearAll(){
+		for (var i = 0; i < blocks.length; i++) {
+			blocks[i].style.backgroundImage = "";
+		}
+	}
+
 //设置函数
-	function convey(){
-		window.level = document.getElementById('level').value;
+	function set(){
+		window.level = parseInt(document.getElementById('level').value);
 		window.time = document.getElementById('time').value;
 	}
 
@@ -57,7 +76,7 @@ window.onload = function(){
 //点击函数
 	function beatMouse(){
 		if (this.style.backgroundImage != "") {
-			var step = parseInt(this.style.backgroundImage.substr(13,1));
+			var step = parseInt(this.style.backgroundImage.substr(18,1));
 			this.style.backgroundImage = "url('css/img/m1.jpg')";
 			completed++;
 			grade += step;
