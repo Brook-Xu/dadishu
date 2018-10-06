@@ -1,6 +1,6 @@
 window.onload = function(){
 	window.level = parseInt(document.getElementById('level').value);
-	window.time = document.getElementById('time').value;
+	window.time = parseInt(document.getElementById('time').value);
 	var grade = 0;
 	var rate = '0%';
 	var completed = 0;
@@ -10,7 +10,7 @@ window.onload = function(){
 	var rateInput = document.getElementById('rate');
 	var timeupInput = document.getElementById('timeup');
 	var blocks = document.getElementsByClassName('block');
-	var status = new Array(blocks.length);
+	var sound = document.getElementById('sound');
 
 	startButton.addEventListener('click', gameStart);
 	sureButton.addEventListener('click', set);
@@ -25,6 +25,11 @@ window.onload = function(){
 		rate = '0%';
 		gradeInput.value = grade;
 		rateInput.value = rate;
+		if (!sound.paused) {
+			sound.loop = false;
+			sound.pause();
+			sound.src = "beat.mp3";
+		}
 		clearAll();
 		startButton.removeEventListener('click', gameStart);
 		countdown();
@@ -44,6 +49,12 @@ window.onload = function(){
 			var points = pointer();
 			createMouse(points);
 			if (timeup == 0) {
+				if (!sound.paused) {
+					sound.loop = false;
+					sound.pause();
+					sound.src = "over.mp3";
+					sound.play();
+				}
 				clearInterval(count);
 				for (var i = 0; i < blocks.length; i++) {
 					blocks[i].removeEventListener('click',beatMouse);
@@ -65,7 +76,8 @@ window.onload = function(){
 //设置函数
 	function set(){
 		window.level = parseInt(document.getElementById('level').value);
-		window.time = document.getElementById('time').value;
+		window.time = parseInt(document.getElementById('time').value);
+		console.log(level * time);
 	}
 
 //生成单独的随机数
@@ -75,6 +87,10 @@ window.onload = function(){
 
 //点击函数
 	function beatMouse(){
+		if (sound.paused) {
+			sound.loop = false;
+			sound.play();
+		}
 		if (this.style.backgroundImage != "") {
 			var step = parseInt(this.style.backgroundImage.substr(18,1));
 			this.style.backgroundImage = "url('css/img/m1.jpg')";
